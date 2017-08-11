@@ -18,7 +18,9 @@
     2. *Используя только две переменные, поменяйте их значение местами. Например, если a = 1, b =
         2, надо, чтобы получилось: b = 1, a = 2. Дополнительные переменные использовать нельзя.
     */
-
+    $title = 'PHP lvl1 lesson1';
+    $h1 = '<h1>Заголовок</h1>';
+    $date = (date("l dS F Y"));
 
 
     ?>
@@ -26,9 +28,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title><?= $title ?></title>
 </head>
 <body>
-
+    <?php
+    echo $h1;
+    echo "<p>$date</p>";
+    ?>
 </body>
 </html>
