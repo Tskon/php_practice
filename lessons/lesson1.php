@@ -22,6 +22,9 @@
     $h1 = '<h1>Заголовок</h1>';
     $date = (date("l dS F Y"));
 
+    $first = 1;
+    $second = 2;
+    $first = $first + $second -($second = $first);
 
     ?>
     <meta charset="UTF-8">
@@ -34,6 +37,9 @@
     <?php
     echo $h1;
     echo "<p>$date</p>";
+
+    echo "первая $first вторая $second";
+
     ?>
 </body>
 </html>
