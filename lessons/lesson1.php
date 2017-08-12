@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+
     <?php
 
     $a = 5;
@@ -9,7 +11,6 @@
     var_dump((int)'012345'); // Почему 12345?  Приведение к числу, ноль не нужен, он отброшен
     var_dump((float)123.0 === (int)123.0); // Почему false? Строгое равенство, разные типы.
     var_dump((int)0 === (int)'hello, world'); // Почему true? Приведение к числу, во второй строке нет цифр, т.е. 0
-
 
     /* second part
     1. Используя имеющийся HTML шаблон, сделать так, чтобы главная страница генерировалась
@@ -27,10 +28,6 @@
     $first = $first + $second -($second = $first);
 
     ?>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $title ?></title>
 </head>
 <body>
