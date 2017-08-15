@@ -23,7 +23,7 @@ if ($a >= 0 && $b >= 0) {
 second part
 Присвоить переменной $а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от $a до 15.
 */
-echo '<br> second part<br>';
+echo '<br>-----second part-----<br>';
 
 $a = rand(0, 15);
 echo "a = $a<br>";
@@ -52,7 +52,7 @@ third part
 Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать
 оператор return.
 */
-echo '<br>third part<br>';
+echo '<br>-----third part-----<br>';
 
 echo mult($b, $a);
 
@@ -77,7 +77,7 @@ fourth part
 значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное
 значение (использовать switch).
 */
-echo '<br>fourth part<br>';
+echo '<br>-----fourth part-----<br>';
 
 mathOperation($b, $a, 'mult');
 
@@ -106,7 +106,7 @@ fifth part
 Посмотреть на встроенные функции PHP. Используя имеющийся HTML шаблон, вывести текущий год в подвале при помощи
 встроенных функций PHP.
 */
-echo '<br>fifth part<br>';
+echo '<br>-----fifth part-----<br>';
 
 echo date("Y");
 
@@ -115,9 +115,11 @@ sixth part
 *С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power($val, $pow),
  где $val – заданное число, $pow – степень.
 */
-echo '<br>sixth part<br>';
+echo '<br>-----sixth part-----<br>';
 
-echo power(5, -3);
+echo power(5, -3) . '<br>';
+echo power(5, 3) . '<br>';
+echo power(5, 0);
 
 function power($val, $pow){
     if ($pow > 0) return $val * power($val, $pow - 1);
@@ -127,3 +129,37 @@ function power($val, $pow){
     }
     return 1;
 }
+
+/*
+seventh part
+*Написать функцию, которая вычисляет текущее время и возвращает его в формате с правильными склонениями
+ 22 часа 15 минут
+*/
+echo '<br>-----seventh part-----<br>';
+
+function getTimeEnding($number, $endingArray){
+    if ($number >= 11 && $number <= 19) {
+        $ending = $endingArray[2];
+    } else {
+        $i = $number % 10;
+        switch ($i) {
+            case (1):
+                $ending = $endingArray[0];
+                break;
+            case (2):
+            case (3):
+            case (4):
+                $ending = $endingArray[1];
+                break;
+            default:
+                $ending = $endingArray[2];
+        }
+    }
+    return $ending;
+}
+
+$hours = date('H');
+$minutes = date('m');
+
+echo $hours . ' ' . getTimeEnding($hours, array('час', 'часа', 'часов')) . ' ' .
+    $minutes . ' ' . getTimeEnding($minutes, array('минута', 'минуты', 'минут'));
