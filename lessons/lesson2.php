@@ -100,3 +100,30 @@ function mathOperation($arg1, $arg2, $operation){
         }
     }
 }
+
+/*
+fifth part
+Посмотреть на встроенные функции PHP. Используя имеющийся HTML шаблон, вывести текущий год в подвале при помощи
+встроенных функций PHP.
+*/
+echo '<br>fifth part<br>';
+
+echo date("Y");
+
+/*
+sixth part
+*С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power($val, $pow),
+ где $val – заданное число, $pow – степень.
+*/
+echo '<br>sixth part<br>';
+
+echo power(5, -3);
+
+function power($val, $pow){
+    if ($pow > 0) return $val * power($val, $pow - 1);
+    if ($pow < 0){
+        $temp = power($val, $pow - $pow * 2);
+        return 1 / $temp;
+    }
+    return 1;
+}
