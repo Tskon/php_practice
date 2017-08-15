@@ -46,3 +46,26 @@ switch ($a){
     case 14: echo '14<br>';
     case 15: echo '15';
 }
+
+/*
+third part
+Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать
+оператор return.
+*/
+echo '<br> third part<br>';
+
+echo div($b, $a);
+
+function sum($a, $b){
+    return $a + $b;
+}
+function dif($a, $b){
+    return $a - $b;
+}
+function mult($a, $b){
+    return $a * $b;
+}
+function div($a, $b){
+    if ($b == 0) return 'Нельзя делить на ноль';
+    return $a / $b;
+}
