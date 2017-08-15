@@ -143,12 +143,12 @@ function getTimeEnding($number, $endingArray){
     } else {
         $i = $number % 10;
         switch ($i) {
-            case (1):
+            case 1:
                 $ending = $endingArray[0];
                 break;
-            case (2):
-            case (3):
-            case (4):
+            case 2:
+            case 3:
+            case 4:
                 $ending = $endingArray[1];
                 break;
             default:
