@@ -52,9 +52,9 @@ third part
 Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать
 оператор return.
 */
-echo '<br> third part<br>';
+echo '<br>third part<br>';
 
-echo div($b, $a);
+echo mult($b, $a);
 
 function sum($a, $b){
     return $a + $b;
@@ -68,4 +68,35 @@ function mult($a, $b){
 function div($a, $b){
     if ($b == 0) return 'Нельзя делить на ноль';
     return $a / $b;
+}
+
+/*
+fourth part
+Реализовать функцию с тремя параметрами: function mathOperation($arg1, $arg2, $operation),
+где $arg1, $arg2 – значения аргументов, $operation – строка с названием операции. В зависимости от переданного
+значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное
+значение (использовать switch).
+*/
+echo '<br>fourth part<br>';
+
+mathOperation($b, $a, 'mult');
+
+function mathOperation($arg1, $arg2, $operation){
+    switch ($operation){
+        case 'sum': {
+            echo sum($arg1, $arg2);
+            break;
+        }
+        case 'dif': {
+            echo dif($arg1, $arg2);
+            break;
+        }
+        case 'mult': {
+            echo mult($arg1, $arg2);
+            break;
+        }
+        case 'div': {
+            echo div($arg1, $arg2);
+        }
+    }
 }
