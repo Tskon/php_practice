@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-    echo 'first lesson end';
+echo 'first lesson end';
 ?>
 
 </body>
