@@ -1,4 +1,5 @@
 <?php
+include 'preview-maker.php';
 if(isset($_FILES['picture'])) {
 
   if(preg_match('/[.](jpg)|(gif)|(png)$/', $_FILES['picture']['name'])) {
@@ -26,7 +27,11 @@ if(isset($_FILES['picture'])) {
   for ($i = 0; $i < count($files); $i++) {
     if ($files[$i] != '.' && $files[$i] != '..') {
       $path = $dir . $files[$i];
-      echo "<a target='_blank' href='$path'><img src='$path'></a>";
+      $miniPath = $dir.'mini/'.$files[$i];
+      if (!file_exists($miniPath)){
+        create_thumbnail($path, $miniPath, 100, 100);
+      }
+      echo "<a target='_blank' href='$path'><img src='$miniPath'></a>";
     }
   }
 
