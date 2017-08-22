@@ -1,8 +1,7 @@
 <?php
 if(isset($_FILES['picture'])) {
 
-  if(preg_match('/[.](jpg)|(gif)|(png)$/', //Ставим допустимые форматы изображений для загрузки
-    $_FILES['picture']['name'])) {
+  if(preg_match('/[.](jpg)|(gif)|(png)$/', $_FILES['picture']['name'])) {
 
     $filename = $_FILES['picture']['name'];
     $source = $_FILES['picture']['tmp_name'];
