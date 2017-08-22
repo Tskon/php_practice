@@ -1,13 +1,15 @@
 <?php
 include 'preview-maker.php';
 if(isset($_FILES['picture'])) {
-
   if(preg_match('/[.](jpg)|(gif)|(png)$/', $_FILES['picture']['name'])) {
-
-    $filename = $_FILES['picture']['name'];
-    $source = $_FILES['picture']['tmp_name'];
-    $target = 'img/' . $filename;
-    move_uploaded_file($source, $target);
+    if($_FILES['picture']['size'] > 1000000){
+        echo 'Слишком большая картинка!';
+    }else {
+      $filename = $_FILES['picture']['name'];
+      $source = $_FILES['picture']['tmp_name'];
+      $target = 'img/' . $filename;
+      move_uploaded_file($source, $target);
+    }
   }
 }
 ?>
