@@ -3,8 +3,7 @@ include 'config.php';
 include 'preview-maker.php';
 
 $link = mysqli_connect($host, $dbUser, $dbPass, $dbName) or die ('Не подключиться к базе данных');
-
-$sqlResult = mysqli_query($link, 'SELECT * FROM `photo_gallery` ORDER BY `name` DESC');
+$sqlResult = mysqli_query($link, 'SELECT * FROM `photo_gallery` ORDER BY `view_count` DESC');
 $imagesArr = array();
 while ($row = mysqli_fetch_assoc($sqlResult)) {
 	$imagesArr[] = $row;
