@@ -1,61 +1,62 @@
 <?php
 include 'config.php';
 include 'preview-maker.php';
-if(isset($_FILES['picture'])) {
-  if(preg_match('/[.](jpg)|(gif)|(png)$/', $_FILES['picture']['name'])) {
-    if($_FILES['picture']['size'] > $maxImgSize){
-      echo 'Слишком большая картинка!';
-    }else {
-      $filename = $_FILES['picture']['name'];
-      $source = $_FILES['picture']['tmp_name'];
-      $target = 'img/' . $filename;
-      move_uploaded_file($source, $target);
-    }
-  }
+
+$link = mysqli_connect($host, $dbUser, $dbPass, $dbName) or die ('Не подключиться к базе данных');
+
+$sqlResult = mysqli_query($link, 'SELECT * FROM `photo_gallery` ORDER BY `name` DESC');
+$imagesArr = array();
+while ($row = mysqli_fetch_assoc($sqlResult)) {
+	$imagesArr[] = $row;
 }
+
+if (isset($_FILES['picture'])) {
+	if (preg_match('/[.](jpg)|(gif)|(png)$/', $_FILES['picture']['name'])) {
+		$filesize = $_FILES['picture']['size'];
+		if ($filesize > $maxImgSize) {
+			echo 'Слишком большая картинка!';
+		} else {
+			$filename = $_FILES['picture']['name'];
+			$source = $_FILES['picture']['tmp_name'];
+			$target = 'img/' . $filename;
+			move_uploaded_file($source, $target);
+			$sql = "INSERT INTO `photo_gallery`(`name`, `size`) VALUES ('$filename', $filesize)";
+			mysqli_query($link, $sql);
+			
+			$path = $dir.$filename;
+			$miniPath = $dir.'mini/'.$filename;
+			create_thumbnail($path, $miniPath, 100, 100);
+		}
+	}
+}
+mysqli_close($link);
 ?>
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>PHP lvl1. Lesson 5</title>
+    <meta charset="UTF-8">
+    <title>PHP lvl1. Lesson 5</title>
 </head>
 <body>
 
 <div class="slider">
-
-  <?php
-  $link = mysqli_connect($host, $dbUser, $dbPass, $dbName);
-  $sqlResult = mysqli_query($link, 'select * from `photo_gallery` order by `name` desc');
-
-  $imagesArr = array();
-  while($row = mysqli_fetch_assoc($sqlResult)){
-      $imagesArr[] = $row;
-  }
-  print_r($imagesArr);
-
-  mysqli_close($link);
-
-  $files = scandir($dir);
-  for ($i = 0; $i < count($files); $i++) {
-    if ($files[$i] != '.' && $files[$i] != '..') {
-      $path = $dir . $files[$i];
-      $miniPath = $dir.'mini/'.$files[$i];
-      if (!file_exists($miniPath)){
-        @create_thumbnail($path, $miniPath, 100, 100);
-      }
-      echo "<a target='_blank' href='$path'><img src='$miniPath'></a>";
-    }
-  }
-
-  ?>
+	
+	<?php
+	
+	foreach ($imagesArr as $imgRow) {
+		$path = $dir . $imgRow['name'];
+		$miniPath = $dir . 'mini/' . $imgRow['name'];
+		echo "<a target='_blank' href='image.php?id=".$imgRow['id']."'><img src='$miniPath'></a>";
+	}
+	
+	?>
 
 </div>
 <div class="uploader">
-  <form enctype="multipart/form-data" action="" method="post">
-    <input type="file" name="picture">
-    <input type="submit" value="Загрузить">
-  </form>
+    <form enctype="multipart/form-data" action="" method="post">
+        <input type="file" name="picture">
+        <input type="submit" value="Загрузить">
+    </form>
 </div>
 
 
