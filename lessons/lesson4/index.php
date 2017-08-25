@@ -31,7 +31,7 @@ if(isset($_FILES['picture'])) {
       $path = $dir . $files[$i];
       $miniPath = $dir.'mini/'.$files[$i];
       if (!file_exists($miniPath)){
-        create_thumbnail($path, $miniPath, 100, 100);
+        @create_thumbnail($path, $miniPath, 100, 100);
       }
       echo "<a target='_blank' href='$path'><img src='$miniPath'></a>";
     }
