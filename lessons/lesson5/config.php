@@ -5,4 +5,3 @@ $host = 'lesson5';
 $dbName = 'php_practice';
 $dbUser = 'root';
 $dbPass = '';
-
