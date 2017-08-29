@@ -1,6 +1,6 @@
 <?php
 include 'config.php';
-include 'preview-maker.php';
+include 'tools/preview-maker.php';
 
 //gallery
 $link = mysqli_connect($host, $dbUser, $dbPass, $dbName) or die ('Не подключиться к базе данных');

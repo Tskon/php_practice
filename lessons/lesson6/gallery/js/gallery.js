@@ -23,7 +23,7 @@ function sendPost(name, text) {
 // Удалить отзыв
 
 $("input[name='delete']").click(function () {
-    var saveThis = this
+    var saveThis = this;
     if(confirm('Точно?')){
         var str = 'id=' + this.id;
 
