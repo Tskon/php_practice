@@ -45,7 +45,8 @@ mysqli_close($link);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PHP lvl1. Lesson 5</title>
+    <link rel="stylesheet" href="css/gallery.css">
+    <title>PHP lvl1. Lesson 6</title>
 </head>
 <body>
 
@@ -70,23 +71,21 @@ mysqli_close($link);
 </div>
 
 <div class="reviews">
-    <table>
+    <h3>Отзывы</h3>
 			<?php
 			foreach ($reviewsArr as $reviewRow) {
-				
-				echo "<tr><td>".$reviewRow['name']."</td><td>".$reviewRow['date']."</td></tr>";
-				echo "<tr><td colspan='2'>".$reviewRow['text']."</td></tr>";
+                echo "<div class='review_elem'><div>" . $reviewRow['name'] . "</div><div>" . $reviewRow['date'] . "</div>";
+                echo "<div>" . $reviewRow['text'] . "</div>";
 
 //CRUD
-				echo "<tr><td colspan='2'>";
-
-                echo"</td></tr>";
+                echo "<div><input type='button' value='редактировать' id='edit" . $reviewRow['id'] . "'><input type='button' value='удалить' name='delete' id='delete" . $reviewRow['id'] . "'></div></div>";
 			}
 			?>
-    </table>
-    <div>
+</div>
+<div id="answer"></div>
+<div class="add_review">
         <label for="name">Имя</label>
-        <input type="text" name="name" id="name"><br>
+    <input type="text" name="name" id="name">
         <label for="text">Сообщение</label>
         <textarea name="text" id="text" cols="30" rows="4"></textarea>
         <input type="submit" value="Запостить" id="review_button">
@@ -94,6 +93,6 @@ mysqli_close($link);
 </div>
 
 <script src="../js/jquery-3.2.1.min.js"></script>
-<script src="gallery.js"></script>
+<script src="js/gallery.js"></script>
 </body>
 </html>
