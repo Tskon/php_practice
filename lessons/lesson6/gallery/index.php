@@ -11,7 +11,7 @@ while ($row = mysqli_fetch_assoc($sqlResult)) {
 }
 
 // reviews
-$sql = 'SELECT `name`, `text`, `date` FROM `reviews`';
+$sql = 'SELECT * FROM `reviews`';
 $sqlResult = mysqli_query($link, $sql);
 $reviewsArr = array();
 while ($row = mysqli_fetch_assoc($sqlResult)) {
@@ -76,10 +76,14 @@ mysqli_close($link);
 				
 				echo "<tr><td>".$reviewRow['name']."</td><td>".$reviewRow['date']."</td></tr>";
 				echo "<tr><td colspan='2'>".$reviewRow['text']."</td></tr>";
+
+//CRUD
+				echo "<tr><td colspan='2'>";
+
+                echo"</td></tr>";
 			}
 			?>
     </table>
-    <div id="answer"></div>
     <div>
         <label for="name">Имя</label>
         <input type="text" name="name" id="name"><br>
