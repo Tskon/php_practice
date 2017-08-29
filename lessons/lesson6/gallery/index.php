@@ -78,7 +78,7 @@ mysqli_close($link);
                 echo "<div>" . $reviewRow['text'] . "</div>";
 
 //CRUD
-                echo "<div><input type='button' value='редактировать' id='edit" . $reviewRow['id'] . "'><input type='button' value='удалить' name='delete' id='delete" . $reviewRow['id'] . "'></div></div>";
+                echo "<div><input type='button' value='редактировать'name='edit' id='edit" . $reviewRow['id'] . "'><input type='button' value='удалить' name='delete' id='delete" . $reviewRow['id'] . "'></div></div>";
 			}
 			?>
 </div>

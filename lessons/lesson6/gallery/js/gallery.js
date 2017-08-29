@@ -31,12 +31,15 @@ $("input[name='delete']").click(function () {
             type: 'post',
             url: 'tools/delete_message.php',
             data: str,
-            success: function (msg) {
+            success: function () {
                 saveThis.parentNode.parentNode.innerHTML = 'Сообщение удалено!';
-                console.log(msg)
             }
         })
     }
 });
 
 // Редактировать отзыв
+$("input[name='edit']").click(function () {
+    var id = this.id;
+    window.open("review.php?id=" + id);
+});
