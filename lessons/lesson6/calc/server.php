@@ -1,7 +1,7 @@
 <?php
 $operation = $_POST['operation'];
-$num1 = (int)preg_replace("/[^0-9]/", '', $_POST['num1']);
-$num2 = (int)preg_replace("/[^0-9]/", '', $_POST['num2']);
+$num1 = (int)htmlspecialchars(preg_replace("/[^0-9]/", '', $_POST['num1']));
+$num2 = (int)htmlspecialchars(preg_replace("/[^0-9]/", '', $_POST['num2']));
 
 switch ($operation) {
 	case 'plus':
