@@ -29,15 +29,15 @@ mysqli_close($link);
 <script>
     $("#save").click(function () {
         var newName = $("#name").val();
-        var newText = $("#text").html();
+        var newText = $("#text").val();
         var id = $('.review_id').html();
         str = 'new_name=' + newName + '&new_text=' + newText + '&id=' + id;
         $.ajax({
             type: 'post',
             url: 'tools/edit_review.php',
             data: str,
-            success: function (msg) {
-                alert('сообщение изменено!' + msg);
+            success: function () {
+                alert('сообщение изменено!');
             }
         })
     });
