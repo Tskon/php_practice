@@ -29,6 +29,7 @@ if (isset($_FILES['picture'])) {
 	}
 }
 mysqli_close($link);
+
 ?>
 <!doctype html>
 <html lang="en">
