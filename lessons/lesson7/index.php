@@ -17,17 +17,20 @@
 
 <div class="content">
     <div class="item">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ex fugiat nostrum praesentium qui. Aspernatur autem beatae dolore et ipsam maiores minima nulla odit, pariatur perspiciatis praesentium quod, tempora temporibus.
-        <input type="button" value="Цена: ">
+        <h3>title</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ex fugiat nostrum praesentium qui.</p>
+        <button class="coast_button">В корзину: 700 р.</button>
     </div>
 </div>
 <div class="content">
     <div class="item">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ex fugiat nostrum praesentium qui. Aspernatur autem beatae dolore et ipsam maiores minima nulla odit, pariatur perspiciatis praesentium quod, tempora temporibus.
+        <h3>title</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ex fugiat nostrum praesentium qui.</p>
         <input type="button" value="Цена: ">
     </div>
 </div>
 
+<script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
