@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.header{
+    width: 100%;
+    display: block;
+}
+.header div{
+    text-align: right;
+    background-color: darkgreen;
+    color: #fff;
+    padding: 25px 20px;
+}
+.header::after{
+    content: "";
+    display: block;
+    background-color: #fc0;
+    padding: 2px;
+}
+
+.item{
+    display: inline-block;
+    width: 250px;
+    margin: 20px;
+    text-align: justify;
+    float: left;
+}
+.item input{
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    padding: 5px;
+    width: 120px;
+}
