@@ -1,7 +1,7 @@
 <?php
 include 'tools/config.php';
 $link = mysqli_connect($host, $dbUser, $dbPass, $dbName) or die();
-echo '<h1>Личный кабинет</h1>';
+
 if(isset($_POST['login']) && isset($_POST['pass'])) {
 	
 	$login = mysqli_real_escape_string($link, (string)htmlspecialchars(strip_tags($_POST['login'])));
@@ -25,3 +25,19 @@ if(isset($_POST['login']) && isset($_POST['pass'])) {
 }else{
 	echo 'Некорректный ввод данных';
 }
+?>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<title>Регистрация</title>
+</head>
+<body>
+<form action="" method="post">
+	<p>Имя</p>
+	<input type="text">
+	<p>Login</p>
+</form>
+
+</body>
+</html>
