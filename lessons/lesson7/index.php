@@ -5,6 +5,8 @@ session_start();
 $link = mysqli_connect($host, $dbUser, $dbPass, $dbName);
 $sql = "SELECT * FROM `products` ORDER BY `name`";
 $result = mysqli_query($link, $sql);
+$basketCount = 0;
+$totalCoast = 0;
 
 ?>
 <!doctype html>
@@ -17,7 +19,8 @@ $result = mysqli_query($link, $sql);
 <body>
 <div class="header">
     <div class="basket">
-        <div>Товаров в корзине: <?= $count ?></div>
+        <div>Товаров в корзине: <?= $basketCount ?></div>
+        <p>На сумму <?= $totalCoast ?> р.</p>
     </div>
 </div>
 
@@ -37,7 +40,6 @@ $result = mysqli_query($link, $sql);
 	}
 	
 	?>
-
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>

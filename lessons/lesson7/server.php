@@ -5,6 +5,4 @@ if ($_POST['type'] == 'productsList'){
 	$controller = 'productsList';
 }
 
-
-
 include 'model.php';

@@ -1,18 +1,12 @@
 'use strict';
 
-window.onload = function () {
-    ajaxRequest('type=productsList',function(msg){
-        // console.log(msg);
-    });
-};
-
 $('button.to_basket_button').click(function (event) {
-
+    ajaxRequest('')
 
 });
 
 
-function ajaxRequest(dataStr, successFunc, urlStr = '/tools/controller.php'){
+function ajaxRequest(dataStr, successFunc, urlStr = 'server.php'){
     $.ajax({
         type: 'post',
         url: urlStr,
