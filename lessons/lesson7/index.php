@@ -19,7 +19,7 @@ $result = mysqli_query($link, $sql);
         <input type="text" name="login" placeholder="login" required>
         <input type="password" name="pass" placeholder="password" required>
         <button>Войти</button>
-        <a href="registration.php">Зарегистрироваться</a>
+        <a href="registration.php" target="_blank">Зарегистрироваться</a>
     </form>
     <div class="basket">
         <h3>Товары в корзине: </h3>
