@@ -3,8 +3,8 @@ window.onload = function () {
     const str = 'type=fillBasket';
     ajaxRequest(str, function (msg) {
         if (!msg) return;
+        console.log(msg);
         fillBasket(JSON.parse(msg));
-        console.log(JSON.parse(msg));
     });
 };
 
@@ -12,7 +12,6 @@ $('button.to_basket_button').click(function (event) {
     const str = 'type=addToBasket&id=' + event.target.id;
     ajaxRequest(str, function (msg) {
         fillBasket(JSON.parse(msg));
-        console.log(JSON.parse(msg));
     });
 });
 
@@ -21,12 +20,21 @@ function fillBasket(arr) {
     basketList.html('');
     arr.forEach(function (obj) {
         const productLi = document.createElement('li');
-        let inner = obj.name + ': ' + obj.coast + ' р.';
-        productLi.innerHTML = inner;
+        productLi.innerHTML = obj.name + ': ' + obj.coast + ' р. ';
+        const del = productLi.appendChild(document.createElement('button'));
+        del.innerHTML = 'x';
+        del.classList.add('id' + obj.id);
+        del.addEventListener('click', delFromBasket);
         basketList.append(productLi);
     })
 }
 
+function delFromBasket() {
+    const str = 'type=delFromBasket&id=' + this.classList;
+    ajaxRequest(str, function (msg) {
+        fillBasket(JSON.parse(msg));
+    });
+}
 function ajaxRequest(dataStr, successFunc, urlStr = 'server.php') {
     $.ajax({
         type: 'post',

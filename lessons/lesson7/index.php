@@ -40,8 +40,10 @@ $result = mysqli_query($link, $sql);
 	
 	?>
 </div>
-<!--<input type="button" onclick="fillBasket()" value="testButton">-->
-<?php print_r($_COOKIE) ?>
+<form target="_blank" method="post" action="">
+    inpu
+</form>
+
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/main.js"></script>
 </body>
