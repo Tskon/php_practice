@@ -1,6 +1,6 @@
 <?php
 include 'tools/config.php';
-session_start();
+
 $link = mysqli_connect($host, $dbUser, $dbPass, $dbName);
 if ($_POST['type'] == 'addToBasket') {
 	$id = (int)preg_replace("/[^0-9]/", '', $_POST['id']);

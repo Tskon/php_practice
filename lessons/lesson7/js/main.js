@@ -18,6 +18,7 @@ $('button.to_basket_button').click(function (event) {
 function fillBasket(arr) {
     const basketList = $('.basket ul');
     basketList.html('');
+    let sum = 0;
     arr.forEach(function (obj) {
         const productLi = document.createElement('li');
         productLi.innerHTML = obj.name + ': ' + obj.coast + ' р. ';
@@ -26,7 +27,9 @@ function fillBasket(arr) {
         del.classList.add('id' + obj.id);
         del.addEventListener('click', delFromBasket);
         basketList.append(productLi);
+        sum += obj.coast;
     })
+    $('#totalCoast').html(sum);
 }
 
 function delFromBasket() {

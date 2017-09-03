@@ -1,6 +1,5 @@
 <?php
 include 'tools/config.php';
-session_start();
 
 $link = mysqli_connect($host, $dbUser, $dbPass, $dbName);
 $sql = "SELECT * FROM `products` ORDER BY `name`";
@@ -16,9 +15,9 @@ $result = mysqli_query($link, $sql);
 </head>
 <body>
 <div class="header">
-    <form target="_blank" method="post" action="">
-        <input type="text" name="login" placeholder="login">
-        <input type="password" name="pass" placeholder="password">
+    <form target="_blank" method="post" action="auth.php">
+        <input type="text" name="login" placeholder="login" required>
+        <input type="password" name="pass" placeholder="password" required>
         <button>Войти</button>
         <a href="#">Зарегистрироваться</a>
     </form>

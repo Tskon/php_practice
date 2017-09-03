@@ -23,6 +23,10 @@
 .header li{
     list-style-type: none;
 }
+.basket div{
+    display: inline-block;
+    margin: 0 -20px;
+}
 
 .item{
     display: inline-block;
