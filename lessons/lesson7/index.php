@@ -5,8 +5,6 @@ session_start();
 $link = mysqli_connect($host, $dbUser, $dbPass, $dbName);
 $sql = "SELECT * FROM `products` ORDER BY `name`";
 $result = mysqli_query($link, $sql);
-$basketCount = 0;
-$totalCoast = 0;
 
 ?>
 <!doctype html>
@@ -19,8 +17,8 @@ $totalCoast = 0;
 <body>
 <div class="header">
     <div class="basket">
-        <div>Товаров в корзине: <?= $basketCount ?></div>
-        <p>На сумму <?= $totalCoast ?> р.</p>
+        <div>Товаров в корзине: <div id="basketCount"></div></div>
+        <p>На сумму <div id="totalCoast"></div> р.</p>
     </div>
 </div>
 
@@ -35,7 +33,7 @@ $totalCoast = 0;
 		"<div class='item'>
             <h3>$productName</h3>
             <p>$productDescription</p>
-            <button class='to_basket_button'>В корзину: $productCoast р.</button>
+            <button class='to_basket_button' id='button-".$productId."'>В корзину: $productCoast р.</button>
         </div>";
 	}
 	

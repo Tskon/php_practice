@@ -1,7 +1,13 @@
 'use strict';
 
+let basketCount = 0;
+let totalCoast = 0;
 $('button.to_basket_button').click(function (event) {
-    ajaxRequest('')
+    let str = 'type=addToBasket&id=' + event.target.id;
+    ajaxRequest(str, function (msg) {
+        console.log(event.target.id);
+        console.log(msg)
+    });
 
 });
 
