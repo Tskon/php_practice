@@ -17,8 +17,9 @@ $result = mysqli_query($link, $sql);
 <body>
 <div class="header">
     <div class="basket">
-        <div>Товаров в корзине: <div id="basketCount"></div></div>
-        <p>На сумму <div id="totalCoast"></div> р.</p>
+        <h3>Товары в корзине: </h3>
+        <ul></ul>
+        <div>На сумму <div id="totalCoast"></div> р.</div>
     </div>
 </div>
 
@@ -39,7 +40,8 @@ $result = mysqli_query($link, $sql);
 	
 	?>
 </div>
-
+<!--<input type="button" onclick="fillBasket()" value="testButton">-->
+<?php print_r($_COOKIE) ?>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/main.js"></script>
 </body>
