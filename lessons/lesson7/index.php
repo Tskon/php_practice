@@ -16,6 +16,12 @@ $result = mysqli_query($link, $sql);
 </head>
 <body>
 <div class="header">
+    <form target="_blank" method="post" action="">
+        <input type="text" name="login" placeholder="login">
+        <input type="password" name="pass" placeholder="password">
+        <button>Войти</button>
+        <a href="#">Зарегистрироваться</a>
+    </form>
     <div class="basket">
         <h3>Товары в корзине: </h3>
         <ul></ul>
@@ -40,9 +46,7 @@ $result = mysqli_query($link, $sql);
 	
 	?>
 </div>
-<form target="_blank" method="post" action="">
-    inpu
-</form>
+
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/main.js"></script>
