@@ -1,4 +1,10 @@
 <?php
+include 'tools/config.php';
+session_start();
+
+$link = mysqli_connect($host, $dbUser, $dbPass, $dbName);
+$sql = "SELECT * FROM `products` ORDER BY `name`";
+$result = mysqli_query($link, $sql);
 
 ?>
 <!doctype html>
@@ -6,28 +12,32 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/main.css">
-		<title>e-shop</title>
+    <title>e-shop</title>
 </head>
 <body>
 <div class="header">
     <div class="basket">
-        <div>Товаров в корзине: <?=$count ?></div>
+        <div>Товаров в корзине: <?= $count ?></div>
     </div>
 </div>
 
 <div class="content">
-    <div class="item">
-        <h3>title</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ex fugiat nostrum praesentium qui.</p>
-        <button class="coast_button">В корзину: 700 р.</button>
-    </div>
-</div>
-<div class="content">
-    <div class="item">
-        <h3>title</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ex fugiat nostrum praesentium qui.</p>
-        <input type="button" value="Цена: ">
-    </div>
+	<?php
+	while ($row = mysqli_fetch_assoc($result)) {
+		$productId = $row['id'];
+		$productName = $row['name'];
+		$productDescription = $row['description'];
+		$productCoast = $row['coast'];
+		echo
+		"<div class='item'>
+            <h3>$productName</h3>
+            <p>$productDescription</p>
+            <button class='to_basket_button'>В корзину: $productCoast р.</button>
+        </div>";
+	}
+	
+	?>
+
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>

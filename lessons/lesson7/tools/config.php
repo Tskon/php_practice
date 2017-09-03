@@ -1,6 +1,6 @@
 <?php
 
-$host = 'gallery';
-$dbName = 'php_practice';
+$host = 'shop';
+$dbName = 'shop';
 $dbUser = 'root';
 $dbPass = '';
