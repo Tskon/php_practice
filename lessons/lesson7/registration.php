@@ -1,3 +1,4 @@
+<!--разделить логику-->
 <?php
 include 'tools/config.php';
 $link = mysqli_connect($host, $dbUser, $dbPass, $dbName) or die();
