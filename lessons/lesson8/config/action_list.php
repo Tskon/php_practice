@@ -1,6 +1,7 @@
 <?php
 
 return array(
-	'catalog' => 'getProductsList'
+	'catalog' => 'getProductsList',
+	'item' => 'getCurrentItem'
 	
 );

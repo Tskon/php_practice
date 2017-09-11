@@ -16,4 +16,15 @@ function getProductsList(){
 	return $catalog;
 }
 
-//echo "models/products.php<br>";
+function getCurrentItem($options){
+	global $link;
+	$id = $options[0];
+	$sql = 'SELECT * FROM `products` WHERE `id` = ' . $id;
+	$result = mysqli_fetch_assoc(mysqli_query($link, $sql));
+	if (!$result){return '<h3>Нет такого товара</h3>';}
+	return $item = "
+		<h3>{$result['name']}</h3>
+		<div class='catalog_description'>{$result['description']}</div>
+		<div class='catalog_coast'>{$result['coast']}</div>
+		";
+}

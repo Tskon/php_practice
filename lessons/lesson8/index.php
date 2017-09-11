@@ -7,6 +7,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 $modelName = null;
 $actionName = null;
+$options = null;
 
 // 2 Подключение файлов системы
 require_once 'config/config.php';
@@ -28,7 +29,7 @@ if (count($uriArr) > 0) {
 	$actionName = array_shift($uriArr);
 }
 if (count($uriArr) > 0) {
-	$params = $uriArr;
+	$options = $uriArr;
 }
 
 // 5 Вызов нужной модели
@@ -45,7 +46,12 @@ if ($actionName != null) {
 	$view = file_get_contents('/views/'.$actionName.'.php', true);
 	$actionArr = include_once '/config/action_list.php';
 	$search = "{{{$actionName}}}";
-	$replace = $actionArr[$actionName](); // запуск экшена из модели возвращает html текстом
+	if ($options != null){
+		$replace = $actionArr[$actionName]($options); // запуск экшена из модели возвращает html текстом
+	}else{
+		$replace = $actionArr[$actionName]();
+	}
+	
 	$view = str_replace($search, $replace, $view); // замена {{actionName}} на html из модели
 	echo $view;
 }
