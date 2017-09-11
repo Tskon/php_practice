@@ -1,15 +1,19 @@
 <?php
-
-function getProductsList($link){
+//include '../config/config.php';
+$link = mysqli_connect($host, $dbUser, $dbPass, $dbName);
+function getProductsList(){
+	global $link;
 	$sql = 'SELECT * FROM `products`';
 	$result = mysqli_query($link, $sql);
 	$catalog = '';
 	while($row = mysqli_fetch_assoc($result)){
-		print_r($row);
+		$catalog .= "
+		<h3>{$row['name']}</h3>
+		<div class='catalog_description'>{$row['description']}</div>
+		<div class='catalog_coast'>{$row['coast']}</div>
+		";
 	}
-	include_once '/views/catalog.php';
-	
-	
+	return $catalog;
 }
 
-echo "models/products.php<br>";
+//echo "models/products.php<br>";

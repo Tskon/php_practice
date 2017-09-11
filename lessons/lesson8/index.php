@@ -6,6 +6,7 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 $modelName = null;
+$actionName = null;
 
 // 2 Подключение файлов системы
 require_once 'config/config.php';
@@ -32,9 +33,21 @@ if (count($uriArr) > 0) {
 
 // 5 Вызов нужной модели
 if ($modelName != null) {
-	include_once 'models/' . $modelName . '.php';
-	getProductsList($link);
+	include_once '/models/' . $modelName . '.php';
 }
 
+// 6 Нужный экшн и вью
+/*
+actionName - имя переменной во вьюшке вида {{actionName}},
+задается в адресной строке siteName/index.php/modelName/actionName
+*/
+if ($actionName != null) {
+	$view = file_get_contents('/views/'.$actionName.'.php', true);
+	$actionArr = include_once '/config/action_list.php';
+	$search = "{{{$actionName}}}";
+	$replace = $actionArr[$actionName](); // запуск нужного экшена из модели (возвращает текст для замены)
+	$view = str_replace($search, $replace, $view);
+	echo $view;
+}
 
 mysqli_close($link);
