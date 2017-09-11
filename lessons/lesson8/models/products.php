@@ -16,7 +16,7 @@ function getProductsList(){
 	return $catalog;
 }
 
-function getCurrentItem($options){
+function getCurrentItem($options = array(0)){
 	global $link;
 	$id = $options[0];
 	$sql = 'SELECT * FROM `products` WHERE `id` = ' . $id;
