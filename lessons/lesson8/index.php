@@ -45,8 +45,8 @@ if ($actionName != null) {
 	$view = file_get_contents('/views/'.$actionName.'.php', true);
 	$actionArr = include_once '/config/action_list.php';
 	$search = "{{{$actionName}}}";
-	$replace = $actionArr[$actionName](); // запуск нужного экшена из модели (возвращает текст для замены)
-	$view = str_replace($search, $replace, $view);
+	$replace = $actionArr[$actionName](); // запуск экшена из модели возвращает html текстом
+	$view = str_replace($search, $replace, $view); // замена {{actionName}} на html из модели
 	echo $view;
 }
 
