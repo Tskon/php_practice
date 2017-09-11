@@ -17,7 +17,7 @@ $link = mysqli_connect($host, $dbUser, $dbPass, $dbName);
 $uri = trim($_SERVER['REQUEST_URI'], '/');
 $uriArr = explode('/', $uri);
 
-if (count($uriArr) > 0) {
+if (count($uriArr) > 0 && $uriArr[0] == 'index.php') {
 	array_shift($uriArr); // убираем index.php
 }
 if (count($uriArr) > 0) {
