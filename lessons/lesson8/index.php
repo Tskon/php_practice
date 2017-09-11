@@ -47,7 +47,7 @@ actionName - имя переменной во вьюшке вида {{actionName
 задается в адресной строке siteName/index.php/modelName/actionName
 */
 $contentView = file_get_contents('./views/' . $actionName . '.php', true);
-$actionArr = include_once '/config/action_list.php';
+$actionArr = include_once './config/action_list.php';
 $search = "{{{$actionName}}}";
 if ($options != null) {
 	$replace = $actionArr[$actionName]($options); // запуск экшена из модели возвращает html текстом
