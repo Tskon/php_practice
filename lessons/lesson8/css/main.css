@@ -10,26 +10,74 @@ body {
     background-color: darkslategrey;
     padding: 10px;
 }
+a, a:visited{
+    color: #fff;
+}
+a:hover{
+    color: #ddd;
+}
 
 /*Header*/
 header {
-    border-bottom: 3px solid white;
-    height: 300px;
+    min-height: 200px;
+    padding-bottom: 10px;
+}
+
+.header_title {
+    font-style: inherit;
+    font-size: 72px;
+    float: left;
 }
 
 .basket {
-    color: #fff;
+    display: inline-block;
     float: right;
     text-align: center;
+    width: 250px;
     padding: 10px;
-    border: 1px solid white;
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, .3);
+}
+.basket ul{
+    list-style: none;
+    text-align: right;
+    margin-right: 50px;
+}
+.basket ul li:nth-child(2n) {
+    background-color: rgba(255, 255, 255, .1);
+}
+.basket ul button{
+    background-color: transparent;
+    border: none;
+    color: red;
+}
+.basket div {
+    display: inline-block;
 }
 
 /*Content*/
 .content {
+    /*border-top: 3px solid white;*/
     width: 80%;
     display: inline-block;
+}
+.content:before {
+    margin: 5px 0;
+    content: '.';
+    font-size: 3px;
+    background-color: white;
+    display: block;
+    width: 980px;
+}
+.catalog_item{
+    padding: 15px;
+    border: 1px solid transparent;
+}
+.catalog_item:nth-child(2n - 1) {
+    background-color: rgba(0, 0, 0, .3);
+}
+.catalog_item button{
+    display: block ;
+    margin: 10px auto 0;
 }
 
 /*Right_Column*/
@@ -45,8 +93,8 @@ header {
     float: right;
     text-align: center;
     padding: 10px;
-    border: 1px solid white;
-    background-color: rgba(0,0,0,.3);
+    /*border: 1px solid white;*/
+    background-color: rgba(0, 0, 0, .3);
 }
 
 .right_side form button {
@@ -54,14 +102,16 @@ header {
     /*float: right;*/
     margin: 5px auto;
 }
+
 .right_side form a {
     display: block;
     clear: both;
     color: #fff;
 }
 
-
 /*Footer*/
 footer {
-
+    border-top: 3px solid white;
+    margin-top: 15px;
+    padding: 40px 0 30px;
 }

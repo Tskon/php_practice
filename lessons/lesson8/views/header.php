@@ -1,4 +1,6 @@
-
+    <div class="header_title">
+        <a href="/index.php">Noname E-Shop</a>
+    </div>
     <div class="basket">
         <h3>Товары в корзине: </h3>
         <ul></ul>

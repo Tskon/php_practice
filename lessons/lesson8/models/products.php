@@ -8,9 +8,11 @@ function getProductsList(){
 	$catalog = '';
 	while($row = mysqli_fetch_assoc($result)){
 		$catalog .= "
-		<h3>{$row['name']}</h3>
+		<div class='catalog_item'>
+		<h3><a href='index.php/products/item/{$row['id']}'>{$row['name']}</a></h3>
 		<div class='catalog_description'>{$row['description']}</div>
-		<div class='catalog_coast'>{$row['coast']}</div>
+		<button class='to_basket_button' id='button-{$row['id']}'>В корзину: {$row['coast']} р.</button>
+		</div>
 		";
 	}
 	return $catalog;
