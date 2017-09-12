@@ -62,6 +62,7 @@ $mainView = file_get_contents('/views/main.php', true);
 $mainView = str_replace("{{title}}", $actionName, $mainView);
 $mainView = str_replace("{{header}}", file_get_contents('./views/header.php'), $mainView);
 $mainView = str_replace("{{content}}", $contentView, $mainView);
+$mainView = str_replace("{{right}}", file_get_contents('./views/auth.php'), $mainView);
 
 echo $mainView;
 mysqli_close($link);
