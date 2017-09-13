@@ -3,15 +3,14 @@ window.onload = function () {
     const str = 'type=fillBasket';
     ajaxRequest(str, function (msg) {
         if (!msg) return;
-        console.log(msg);
         fillBasket(JSON.parse(msg));
     });
 };
 
 $('button.to_basket_button').click(function (event) {
     const str = 'type=addToBasket&id=' + event.target.id;
-    console.log(str + event.target);
     ajaxRequest(str, function (msg) {
+        // console.log(msg);
         fillBasket(JSON.parse(msg));
     });
 });
@@ -39,7 +38,8 @@ function delFromBasket() {
         fillBasket(JSON.parse(msg));
     });
 }
-function ajaxRequest(dataStr, successFunc, urlStr = './models/ajaxServer.php') {
+function ajaxRequest(dataStr, successFunc, urlStr = '/controllers/ajaxServer.php') {
+// function ajaxRequest(dataStr, successFunc, urlStr = '/index.php') {
     $.ajax({
         type: 'post',
         url: urlStr,
@@ -48,4 +48,12 @@ function ajaxRequest(dataStr, successFunc, urlStr = './models/ajaxServer.php') {
             successFunc(msg);
         }
     });
+}
+
+// registration/auth toggle
+$('.toggle_button').click(function(){
+    toggleFormHide();
+});
+function toggleFormHide(){
+    $('.right_side form').toggleClass('hidden')
 }

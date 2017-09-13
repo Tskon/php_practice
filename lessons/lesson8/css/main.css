@@ -16,6 +16,9 @@ a, a:visited{
 a:hover{
     color: #ddd;
 }
+.hidden{
+    display: none;
+}
 
 /*Header*/
 header {
@@ -36,19 +39,24 @@ header {
     width: 250px;
     padding: 10px;
     background-color: rgba(0, 0, 0, .3);
+    border-radius: 5px;
 }
 .basket ul{
     list-style: none;
     text-align: right;
     margin-right: 50px;
 }
-.basket ul li:nth-child(2n) {
+/*.basket ul li:nth-child(2n) {*/
+.basket ul li:hover {
     background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
 }
 .basket ul button{
+    display: inline-block;
     background-color: transparent;
     border: none;
     color: red;
+    cursor: pointer;
 }
 .basket div {
     display: inline-block;
@@ -71,6 +79,7 @@ header {
 .catalog_item{
     padding: 15px;
     border: 1px solid transparent;
+    border-radius: 5px;
 }
 .catalog_item:nth-child(2n - 1) {
     background-color: rgba(0, 0, 0, .3);
@@ -93,20 +102,43 @@ header {
     float: right;
     text-align: center;
     padding: 10px;
-    /*border: 1px solid white;*/
     background-color: rgba(0, 0, 0, .3);
+    border-radius: 5px;
 }
-
-.right_side form button {
+.right_side form h3{
+    margin: 0 0 10px 0;
+}
+.right_side form input {
+    border-radius: 5px;
+    border: none;
+    padding: 3px;
+    margin-bottom: 3px;
+    outline-style: none;
+}
+.right_side form input:focus {
+    background-color: papayawhip;
+}
+.right_side form button, button {
     display: block;
-    /*float: right;*/
     margin: 5px auto;
+    border-radius: 5px;
+    outline-style: none;
 }
-
+.right_side form button:hover, button:hover {
+    background-color: papayawhip;
+    border-color: papayawhip;
+}
 .right_side form a {
     display: block;
     clear: both;
     color: #fff;
+}
+.toggle_button{
+    text-decoration: underline;
+}
+.toggle_button:hover {
+    color: #ddd;
+    cursor: pointer;
 }
 
 /*Footer*/

@@ -9,7 +9,7 @@ function getProductsList(){
 	while($row = mysqli_fetch_assoc($result)){
 		$catalog .= "
 		<div class='catalog_item'>
-		<h3><a href='index.php/products/item/{$row['id']}'>{$row['name']}</a></h3>
+		<h3><a href='/index.php/products/item/{$row['id']}'>{$row['name']}</a></h3>
 		<div class='catalog_description'>{$row['description']}</div>
 		<button class='to_basket_button' id='button-{$row['id']}'>В корзину: {$row['coast']} р.</button>
 		</div>
@@ -28,5 +28,6 @@ function getCurrentItem($options = array(0)){
 		<h3>{$result['name']}</h3>
 		<div class='catalog_description'>{$result['description']}</div>
 		<div class='catalog_coast'>{$result['coast']}</div>
+		<button class='to_basket_button' id='button-{$result['id']}'>В корзину: {$result['coast']} р.</button>
 		";
 }
