@@ -1,0 +1,1 @@
+<div class="new_order">{{newOrder}}</div>

@@ -2,5 +2,6 @@
 
 return array(
 	'catalog' => 'getProductsList',
-	'item' => 'getCurrentItem'
+	'item' => 'getCurrentItem',
+	'newOrder' => 'createNewOrder'
 );

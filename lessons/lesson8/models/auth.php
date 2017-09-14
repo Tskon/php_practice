@@ -64,5 +64,4 @@ if (@isset($_POST['pass2']) && @isset($_POST['name'])) {
 			echo '<h3 style="color: darkred">Пароли не совпадают!</h3>';
 		}
 	}
-	
 }
