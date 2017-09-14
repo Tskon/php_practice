@@ -9,11 +9,14 @@ error_reporting(E_ALL);
 $modelName = 'products';
 $actionName = 'catalog';
 $options = null;
+$isAuth = false;
 
 // 3 Подключение файлов системы и установка соединения с БД
 require_once '/config/config.php';
 $link = mysqli_connect($host, $dbUser, $dbPass, $dbName);
-include_once '/models/auth.php';
+//if (@!($_POST['m'] == 'auth')) {
+	include_once '/models/auth.php';
+//}
 //include_once '/models/ajaxServer.php';
 
 // 4 парсинг адресной строки
@@ -56,12 +59,18 @@ if ($options != null) {
 
 $contentView = str_replace($search, $replace, $contentView); // замена {{actionName}} на html из модели
 
-// 7 Подключение main view
+// 7 Подключение main view и модулей
 $mainView = file_get_contents('/views/main.php', true);
 $mainView = str_replace("{{title}}", $actionName, $mainView);
+if($isAuth){
+	$admPanelView = file_get_contents('/views/adminPanel.php', true);
+	$admPanelView = str_replace("{{user}}", $authUser['userName'], $admPanelView);
+	$mainView = str_replace("{{right}}", file_get_contents('./views/loggedUserMenu.php'), $mainView);
+	echo $admPanelView;
+}else{
+	$mainView = str_replace("{{right}}", file_get_contents('./views/auth.php'), $mainView);
+}
 $mainView = str_replace("{{header}}", file_get_contents('./views/header.php'), $mainView);
 $mainView = str_replace("{{content}}", $contentView, $mainView);
-$mainView = str_replace("{{right}}", file_get_contents('./views/auth.php'), $mainView);
-
 echo $mainView;
 mysqli_close($link);

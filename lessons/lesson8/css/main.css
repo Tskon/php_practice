@@ -20,6 +20,26 @@ a:hover{
     display: none;
 }
 
+/*Admin panel*/
+.admin_panel{
+    height: 30px;
+    background-color: #333;
+    padding: 6px 4px 0 10px;
+}
+input.log_out{
+    float: right;
+    margin: 1px 4px 0 0;
+    border-radius: 6px;
+    border-color: transparent;
+    background-color: rgba(0, 0, 0, .3);
+    color: #aaa;
+    cursor: pointer;
+}
+input.log_out:hover{
+    background-color: rgba(0, 0, 0, .2);
+    color: #bbbbbb;
+}
+
 /*Header*/
 header {
     min-height: 200px;
@@ -98,10 +118,11 @@ header {
     text-align: right;
 }
 
-.right_side form {
+.right_side form, .logged_user_menu {
+    width: 96%;
     float: right;
     text-align: center;
-    padding: 10px;
+    padding: 12px;
     background-color: rgba(0, 0, 0, .3);
     border-radius: 5px;
 }
@@ -112,7 +133,7 @@ header {
     border-radius: 5px;
     border: none;
     padding: 3px;
-    margin-bottom: 3px;
+    margin: 0 0 3px -2px;
     outline-style: none;
 }
 .right_side form input:focus {
@@ -140,6 +161,11 @@ header {
     color: #ddd;
     cursor: pointer;
 }
+
+.logged_user_menu{
+width: 100%;
+}
+
 
 /*Footer*/
 footer {
