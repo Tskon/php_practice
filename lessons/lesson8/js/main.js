@@ -23,7 +23,6 @@ window.onload = function () {
 $('button.to_basket_button').click(function (event) {
     const str = 'm=basket&type=addToBasket&id=' + event.target.id;
     ajaxRequest(str, function (msg) {
-        // console.log(msg);
         fillBasket(JSON.parse(msg));
     });
 });
@@ -51,9 +50,17 @@ function delFromBasket() {
         fillBasket(JSON.parse(msg));
     });
 }
-
 // Auth
 
+// -registration
+// $(".basket input[type='button']").click(function (e) {
+// $("#reg-button").click(function (e) {
+//     e.preventDefault();
+//     const str = 'm=auth&type=registration';
+//     ajaxRequest(str, function (msg) {
+//         console.log(msg);
+//     })
+// });
 // -registration/auth toggle
 $('.toggle_button').click(function () {
     toggleFormHide();

@@ -1,5 +1,4 @@
 <?php
-//include '../config/config.php';
 $link = mysqli_connect($host, $dbUser, $dbPass, $dbName);
 function getProductsList(){
 	global $link;

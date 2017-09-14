@@ -81,6 +81,25 @@ header {
 .basket div {
     display: inline-block;
 }
+.basket input[type='button']{
+    display: block;
+    margin: 5px auto;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .3);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    outline: none;
+}
+.basket input[type='button']:hover{
+    background-color: rgba(0, 0, 0, .2);
+}
+.basket input[type='button']:active{
+    color: #dfdfdf;
+    background-color: rgba(0, 0, 0, .15);
+    padding: 6px 9px 4px 11px;
+}
 
 /*Content*/
 .content {
@@ -136,6 +155,13 @@ header {
     margin: 0 0 3px -2px;
     outline-style: none;
 }
+.right_side form input[type='checkbox']{
+    position: relative;
+    top: 5px;
+    margin-left: 3px;
+    height: 18px;
+    width: 18px;
+}
 .right_side form input:focus {
     background-color: papayawhip;
 }
@@ -163,9 +189,8 @@ header {
 }
 
 .logged_user_menu{
-width: 100%;
-}
 
+}
 
 /*Footer*/
 footer {

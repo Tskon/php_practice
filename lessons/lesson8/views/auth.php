@@ -11,6 +11,8 @@
     <input type="text" name="login" placeholder="login" required>
     <input type="password" name="pass" placeholder="password" required>
     <input type="password" name="pass2" placeholder="confirm password" required>
-    <button>Зарегистрироваться</button>
+    <label for="root-checkbox">Администратор?</label>
+    <input type="checkbox" name="root" id="root-checkbox" value="1">
+    <button id="reg-button">Зарегистрироваться</button>
     <div href="registration.php" target="_blank" class="toggle_button">Авторизация</div>
 </form>
