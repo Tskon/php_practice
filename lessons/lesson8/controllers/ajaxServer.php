@@ -9,6 +9,9 @@ if ($_POST) {
 	if (@$_POST['m'] == 'auth'){
 		include_once '../models/auth.php';
 	}
+	if (@$_POST['m'] == 'order'){
+		include_once '../models/order.php';
+	}
 	
 	mysqli_close($link);
 }

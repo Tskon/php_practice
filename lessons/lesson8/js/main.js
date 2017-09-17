@@ -52,22 +52,6 @@ function delFromBasket() {
 }
 // Auth
 
-// -registration
-$(".basket input[type='button']").click(function () {
-    const str = 'm=basket&type=fillBasket';
-    ajaxRequest(str, function (msg) {
-        if (!msg) return;
-        let result = JSON.parse(msg);
-        console.log(result);
-        let str2 = '';
-        result.forEach(function (obj) {
-            str2 += obj.id + '/';
-        });
-        document.location.href = 'http://' + document.location.host + '/index.php/order/newOrder/' + str2;
-    });
-
-});
-
 // -registration/auth toggle
 $('.toggle_button').click(function () {
     toggleFormHide();
@@ -86,6 +70,13 @@ $('.log_out').click(function () {
 
 
 // Order
-$('.del_from_order_button').click(function (e) {
-
+// - New Order
+$(".basket input[type='button']").click(function () {
+    const str = 'm=order&type=newOrder';
+    ajaxRequest(str, function (msg) {
+        console.log(msg);
+    });
 });
+// $('.del_from_order_button').click(function (e) {
+
+// });
