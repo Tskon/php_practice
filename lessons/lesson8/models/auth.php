@@ -9,7 +9,7 @@ if (@isset($_POST['login']) && isset($_POST['pass']) && @!isset($_POST['pass2'])
 	if ($result) {
 		$user = mysqli_fetch_assoc($result);
 		if ($user['password'] == md5($password)) {
-			$cook_val = array('userName' => $user['name'], 'userLogin' => $user['login'], 'userPass' => $user['password'], 'root' => $user['root']);
+			$cook_val = array('userID' => $user['id'], 'userName' => $user['name'], 'userLogin' => $user['login'], 'userPass' => $user['password'], 'root' => $user['root']);
 			setcookie('authUser', serialize($cook_val), time() + 3600, '/');
 			$isAuth = true;
 			$authUser = $cook_val;

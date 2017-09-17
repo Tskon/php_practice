@@ -4,13 +4,31 @@ if (@$_POST['type'] == 'newOrder') {
 }
 function createNewOrder() {
 	global $link;
-	$user = null;
-	if (@isset($_COOKIE['authUser'])) {
-		print_r($_COOKIE['authUser']);
-		$sql = 'INSERT INTO ``'
-	}else{
-	
+	if (@isset($_COOKIE['basket'])) {
+		// получить список товаров, создать архив с айди товаров и ценами.
+		// пройти по архиву, добавить данные в таблицу orderlist
+		// создать связь между таблицами orderlist и orders
 	}
+	$sql = 'SELECT max(`id`) AS `maxid` FROM `orders` ';
+	$result = mysqli_fetch_assoc((mysqli_query($link, $sql)));
+	$orderID = $result['maxid'] + 1;
+	if (@isset($_COOKIE['authUser'])) {
+		$user = unserialize($_COOKIE['authUser']);
+		$userID = $user['userID'];
+	} else {
+		$userID = 0;
+	}
+	$totalCoast = $_POST['totalCoast'];
+	//	$sql = "INSERT INTO `orders` (`user_id`, `total_coast`) VALUES ('$userID', $totalCoast)";
+	//	После успешного добавления заказа в БД очистить корзину,
+	//	переместиться на страницу оформленного заказа.
+	// Если товар добавлен зарегистрированным пользователем - он может редактировать
+	if (mysqli_query($link, $sql)) {
+		//		echo true;
+	} else {
+		//		echo false;
+	};
+	print_r($orderID);
 }
 //		global $link;
 //		$basket = '';

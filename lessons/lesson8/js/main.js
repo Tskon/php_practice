@@ -72,7 +72,7 @@ $('.log_out').click(function () {
 // Order
 // - New Order
 $(".basket input[type='button']").click(function () {
-    const str = 'm=order&type=newOrder';
+    const str = 'm=order&type=newOrder&totalCoast='+$('#totalCoast').html();
     ajaxRequest(str, function (msg) {
         console.log(msg);
     });
