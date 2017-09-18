@@ -10,6 +10,14 @@ function ajaxRequest(dataStr, successFunc, urlStr = '/controllers/ajaxServer.php
         }
     });
 }
+// Getters
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 
 // Basket
 window.onload = function () {
@@ -68,13 +76,24 @@ $('.log_out').click(function () {
     });
 });
 
-
 // Order
 // - New Order
 $(".basket input[type='button']").click(function () {
-    const str = 'm=order&type=newOrder&totalCoast='+$('#totalCoast').html();
-    ajaxRequest(str, function (msg) {
-        console.log(msg);
+    ajaxRequest('m=basket&type=fillBasket', function (msg) {
+        // в msg список товаров, преобразуем и отправим в POST
+        if (!msg) return;
+        let arrId = [];
+        let arrCoast = [];
+        const result = JSON.parse(msg);
+        result.forEach(function (item) {
+            arrId.push(item.id);
+            arrCoast.push(item.coast)
+        });
+        let str = 'm=order&type=newOrder&totalCoast=' + $('#totalCoast').html() + '&productsList=' + arrId.join('-')+ '&coastsList=' + arrCoast.join('-');
+        console.log(str);
+        ajaxRequest(str, function (msg) {
+            console.log(msg);
+        });
     });
 });
 // $('.del_from_order_button').click(function (e) {
