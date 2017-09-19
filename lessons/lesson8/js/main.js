@@ -90,9 +90,8 @@ $(".basket input[type='button']").click(function () {
             arrCoast.push(item.coast)
         });
         let str = 'm=order&type=newOrder&totalCoast=' + $('#totalCoast').html() + '&productsList=' + arrId.join('-')+ '&coastsList=' + arrCoast.join('-');
-        console.log(str);
         ajaxRequest(str, function (msg) {
-            console.log(msg);
+            document.location.href = document.location.href
         });
     });
 });

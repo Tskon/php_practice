@@ -30,7 +30,7 @@ if (@isset($_COOKIE['authUser']) && @$_POST['type'] <> 'logOut') {
 	}
 }
 if (@$_POST['type'] == 'logOut' && @isset($_COOKIE['authUser'])) {
-	setcookie('authUser', '', time() - 100, '/	');
+	setcookie('authUser', '', time() - 100, '/');
 	$isAuth = false;
 }
 if (@isset($_POST['pass2']) && @isset($_POST['name'])) {

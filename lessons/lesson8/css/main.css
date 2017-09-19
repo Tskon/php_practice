@@ -149,10 +149,12 @@ header {
     margin: 0 0 10px 0;
 }
 .right_side form input {
+    width: 150px;
+    height: 20px;
     border-radius: 5px;
     border: none;
     padding: 3px;
-    margin: 0 0 3px -2px;
+    margin: 0 0 3px 0;
     outline-style: none;
 }
 .right_side form input[type='checkbox']{
@@ -166,6 +168,7 @@ header {
     background-color: papayawhip;
 }
 .right_side form button, button {
+    font-size: small;
     display: block;
     margin: 5px auto;
     border-radius: 5px;
