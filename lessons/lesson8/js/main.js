@@ -91,6 +91,7 @@ $(".basket input[type='button']").click(function () {
         });
         let str = 'm=order&type=newOrder&totalCoast=' + $('#totalCoast').html() + '&productsList=' + arrId.join('-')+ '&coastsList=' + arrCoast.join('-');
         ajaxRequest(str, function (msg) {
+
             document.location.href = document.location.origin + '/index.php/order/newOrder';
         });
     });
