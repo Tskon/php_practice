@@ -28,7 +28,32 @@ function createNewOrder() {
         mysqli_query($link, $sql);
         $i++;
     }
+}
 
-	//	переместиться на страницу оформленного заказа.
-	// Если товар добавлен зарегистрированным пользователем - он может редактировать
+function lastOrder(){
+    $str = "
+    <div>
+    <h1>Ваш заказ успешно оформлен!</h1>
+    
+</div>
+    ";
+    global $link;
+    $sql = "SELECT * FROM `orders` LEFT JOIN orderlist ON (orders.id = orderlist.order_id) ORDER BY orders.id DESC LIMIT 1
+";
+    $result = mysqli_query($link, $sql);
+    $order = mysqli_fetch_assoc($result);
+    $str .= "
+        <p>Заказ № {$order['order_id']}</p>
+        <p>Список товаров:</p>
+        <ul>";
+    $sql = "SELECT orderlist.coast, name FROM `orderlist` 
+LEFT JOIN products ON (products.id = orderlist.product_id)
+WHERE order_id = {$order['order_id']}";
+    $result = mysqli_query($link, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $str .= "<li>{$row['name']}: {$row['coast']} р.</li>";
+    };
+    $str .= "</ul><p>Сумма: {$order['total_coast']} р.</p>";
+
+    return $str;
 }

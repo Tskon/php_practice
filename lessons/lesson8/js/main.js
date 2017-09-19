@@ -11,12 +11,12 @@ function ajaxRequest(dataStr, successFunc, urlStr = '/controllers/ajaxServer.php
     });
 }
 // Getters
-function getCookie(name) {
-    let matches = document.cookie.match(new RegExp(
-        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    ));
-    return matches ? decodeURIComponent(matches[1]) : undefined;
-}
+// function getCookie(name) {
+//     let matches = document.cookie.match(new RegExp(
+//         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+//     ));
+//     return matches ? decodeURIComponent(matches[1]) : undefined;
+// }
 
 
 // Basket
@@ -91,7 +91,7 @@ $(".basket input[type='button']").click(function () {
         });
         let str = 'm=order&type=newOrder&totalCoast=' + $('#totalCoast').html() + '&productsList=' + arrId.join('-')+ '&coastsList=' + arrCoast.join('-');
         ajaxRequest(str, function (msg) {
-            document.location.href = document.location.href
+            document.location.href = document.location.origin + '/index.php/order/newOrder';
         });
     });
 });
