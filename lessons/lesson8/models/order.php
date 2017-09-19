@@ -30,30 +30,41 @@ function createNewOrder() {
     }
 }
 
+function currentOrder($id){
+
+}
+
 function lastOrder(){
+    global $link;
+    $sql = 'SELECT max(`id`) AS `maxid` FROM `orders` ';
+    $result = mysqli_fetch_assoc((mysqli_query($link, $sql)));
+    $orderID = $result['maxid'];
+
     $str = "
     <div>
     <h1>Ваш заказ успешно оформлен!</h1>
     
 </div>
     ";
-    global $link;
-    $sql = "SELECT * FROM `orders` LEFT JOIN orderlist ON (orders.id = orderlist.order_id) ORDER BY orders.id DESC LIMIT 1
+
+    $sql = "SELECT orders.id, orders.total_coast, orders.datetime, orderlist.order_id, products.name, products.coast FROM `orders` RIGHT JOIN orderlist ON (orders.id = orderlist.order_id)
+LEFT JOIN products ON (orderlist.product_id = products.id)
+ WHERE orderlist.order_id = $orderID 
 ";
     $result = mysqli_query($link, $sql);
-    $order = mysqli_fetch_assoc($result);
-    $str .= "
-        <p>Заказ № {$order['order_id']}</p>
+    $orderHeader = null;
+    while ($row = mysqli_fetch_assoc($result)) {
+        if($orderHeader <> 1){
+            $str .= "
+        <p>Заказ № {$row['id']} от {$row['datetime']}</p>
+        <p>Сумма: {$row['total_coast']} р.</p>
         <p>Список товаров:</p>
         <ul>";
-    $sql = "SELECT orderlist.coast, name FROM `orderlist` 
-LEFT JOIN products ON (products.id = orderlist.product_id)
-WHERE order_id = {$order['order_id']}";
-    $result = mysqli_query($link, $sql);
-    while ($row = mysqli_fetch_assoc($result)) {
+        }
         $str .= "<li>{$row['name']}: {$row['coast']} р.</li>";
+        $orderHeader = 1;
     };
-    $str .= "</ul><p>Сумма: {$order['total_coast']} р.</p>";
+    $str .= "</ul>";
 
     return $str;
 }
