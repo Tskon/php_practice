@@ -9,7 +9,6 @@ if (@$_POST['type'] == 'addToBasket') {
 	$str = '[';
 	if (isset($_COOKIE['basketList'])) {
 		$str = substr($_COOKIE['basketList'], 0, -1) . ', ';
-		
 	}
 	$str .= '{ "id": "' . $id . '", "name": "' . $name . '", "coast": ' . $coast . '}]';
 	
@@ -29,6 +28,11 @@ if (@$_POST['type'] == 'delFromBasket') {
 	$id = (int)preg_replace("/[^0-9]/", '', $_POST['id']);
 	if (isset($_COOKIE['basketList'])) {
 		$response = json_decode($_COOKIE['basketList'], true);
+		if (count($response) == 1){
+            setcookie("basketList", '', time() - 100);
+            echo '[]';
+            exit;
+        }
 		foreach ($response as $key => $val) {
 			if ($val['id'] == $id) {
 				unset($response[$key]);
@@ -44,5 +48,5 @@ if (@$_POST['type'] == 'delFromBasket') {
 		setcookie("basketList", $str, time() + 3600);
 		echo $str;
 	}
-	exit;
+
 }
