@@ -12,6 +12,12 @@ if ($_POST) {
 	if (@$_POST['m'] == 'order'){
 		include_once '../models/order.php';
 	}
+	if (@$_POST['m'] == 'catalogEdit'){
+		include_once '../models/catalogEdit.php';
+	}
+    if (@$_POST['m'] == 'orderEdit'){
+        include_once '../models/orderEdit.php';
+    }
 	
 	mysqli_close($link);
 }

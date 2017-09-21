@@ -203,6 +203,14 @@ header {
     margin: 5px 0;
 }
 
+.user_order{
+    padding: 10px;
+    border-radius: 5px;
+}
+.user_order:nth-child(2n - 1) {
+    background-color: rgba(0, 0, 0, .3);
+}
+
 /*Footer*/
 footer {
     border-top: 3px solid white;

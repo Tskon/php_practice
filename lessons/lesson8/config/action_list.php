@@ -5,5 +5,6 @@ return array(
 	'catalog' => 'getProductsList',
 	'item' => 'getCurrentItem',
 	'all_orders' => 'allOrders',
+	'user_orders' => 'userOrders',
 	'newOrder' => 'lastOrder'
 );

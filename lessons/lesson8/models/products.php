@@ -17,7 +17,9 @@ function getProductsList($options){
 		";
         }
         if ($authUser['root'] == 1 && $options[0] == 'edit') {
-            $catalog .= '<input type="button" value="Del" id="catalog-button-del-' . $row['id'] . '"> </div>';
+            $catalog .= '
+            <p>Цена:'. $row['coast'] .' </p>
+            <input type="button" class="catalog_button_del" value="Del" id="catalog_button_del_' . $row['id'] . '"> </div>';
         } else {
             $catalog .= '</div>';
         }
@@ -26,9 +28,9 @@ function getProductsList($options){
         $catalog .= "
         <div id='create_product_form'>
         <h3>Добавить новый товар:</h3>
-            <input type='text' name='name' placeholder='Название' required>
-            <input type='text' name='coast' placeholder='Цена' required>
-            <textarea cols='35' rows='6' name='descr' placeholder='описание' required></textarea>
+            <input type='text' id='product_name' placeholder='Название' required>
+            <input type='text' id='product_coast' placeholder='Цена' required>
+            <textarea cols='35' rows='6' id='product_descr' placeholder='Описание' required></textarea>
             <input type='button' id='create_product_button' value='Создать'>
         </div>
         ";

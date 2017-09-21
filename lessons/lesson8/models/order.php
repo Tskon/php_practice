@@ -30,9 +30,6 @@ function createNewOrder() {
     }
 }
 
-//function currentOrder($id){
-//
-//}
 function allOrders(){
     global $link;
     $sql = "SELECT id, total_coast, datetime FROM `orders`";
@@ -53,7 +50,43 @@ function allOrders(){
         while ($row2 = mysqli_fetch_assoc($result2)) {
             $str .= "<li>{$row2['name']}: {$row2['coast']} р.</li>";
         }
-        $str .= "</ul><hr>";
+        $str .= "
+                </ul>
+                <input type='button' value='del' class='order_button_del' id='order_button_del_{$row['id']}'>
+                <hr>";
+    };
+
+    return $str;
+}
+
+function userOrders()
+{
+    global $link;
+    global $authUser;
+
+    $sql = "SELECT orders.user_id,orders.id as orderN, orders.total_coast, orders.datetime, orderlist.order_id, products.name, products.coast FROM `orders` 
+RIGHT JOIN orderlist ON (orders.id = orderlist.order_id)
+LEFT JOIN products ON (orderlist.product_id = products.id)
+ WHERE user_id = {$authUser['userID']} ORDER BY orderN DESC 
+ ";
+
+    $str = "";
+    $result = mysqli_query($link, $sql);
+    $orderN = 0;
+    while ($row = mysqli_fetch_assoc($result)) {
+
+        if ($orderN <> $row['orderN']) {
+            $str .= "</div><div class='user_order'></ul>
+                <p>Заказ № {$row['orderN']} от {$row['datetime']}</p>
+                <p>Сумма: {$row['total_coast']} р.</p>
+                <p>Список товаров:</p>
+                <ul>
+            ";
+
+        }
+        $orderN = $row['orderN'];
+        $str .= "<li>{$row['name']}: {$row['coast']} р.</li>";
+
     };
 
     return $str;

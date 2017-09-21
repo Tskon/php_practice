@@ -14,7 +14,7 @@ function userMenu()
 {
     return "
 <ul>
-    <a href='#'><li>Заказы пользователя</li></a>
+    <a href='/index.php/order/user_orders'><li>Заказы пользователя</li></a>
 </ul>
     ";
 }

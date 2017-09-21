@@ -10,14 +10,6 @@ function ajaxRequest(dataStr, successFunc, urlStr = '/controllers/ajaxServer.php
         }
     });
 }
-// Getters
-// function getCookie(name) {
-//     let matches = document.cookie.match(new RegExp(
-//         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-//     ));
-//     return matches ? decodeURIComponent(matches[1]) : undefined;
-// }
-
 
 // Basket
 window.onload = function () {
@@ -90,12 +82,36 @@ $(".basket input[type='button']").click(function () {
             arrCoast.push(item.coast)
         });
         let str = 'm=order&type=newOrder&totalCoast=' + $('#totalCoast').html() + '&productsList=' + arrId.join('-')+ '&coastsList=' + arrCoast.join('-');
-        ajaxRequest(str, function (msg) {
+        ajaxRequest(str, function () {
 
             document.location.href = document.location.origin + '/index.php/order/newOrder';
         });
     });
 });
-// $('.del_from_order_button').click(function (e) {
 
-// });
+// - Del Order
+$('input.order_button_del').click(function (event) {
+    const str = 'm=orderEdit&type=delOrder&id=' + event.target.id;
+    ajaxRequest(str, function (msg) {
+        document.location.href = document.location.href
+    });
+});
+
+
+// Catalog Edit
+// - Del product
+$('input.catalog_button_del').click(function (event) {
+    const str = 'm=catalogEdit&type=delItem&id=' + event.target.id;
+    ajaxRequest(str, function (msg) {
+        document.location.href = document.location.href
+    });
+});
+
+// - Create product
+$('#create_product_button').click(function () {
+    const str = 'm=catalogEdit&type=createItem&name=' + $('#product_name').val() + '&coast=' + $('#product_coast').val() + '&descr=' + $('#product_descr').val();
+    ajaxRequest(str, function (msg) {
+        console.log(msg);
+        document.location.href = document.location.href
+    });
+});
