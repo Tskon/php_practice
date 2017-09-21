@@ -47,7 +47,8 @@ function lastOrder(){
 </div>
     ";
 
-    $sql = "SELECT orders.id, orders.total_coast, orders.datetime, orderlist.order_id, products.name, products.coast FROM `orders` RIGHT JOIN orderlist ON (orders.id = orderlist.order_id)
+    $sql = "SELECT orders.id, orders.total_coast, orders.datetime, orderlist.order_id, products.name, products.coast FROM `orders` 
+RIGHT JOIN orderlist ON (orders.id = orderlist.order_id)
 LEFT JOIN products ON (orderlist.product_id = products.id)
  WHERE orderlist.order_id = $orderID 
 ";

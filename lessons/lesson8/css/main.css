@@ -3,7 +3,7 @@ body {
     width: 1000px;
     margin: 10px auto;
     background-color: darkgrey;
-    color: #fff;
+    color: #ccc;
 }
 
 .main_wrapper {
@@ -191,8 +191,11 @@ header {
     cursor: pointer;
 }
 
-.logged_user_menu{
-
+.logged_user_menu ul{
+    list-style: none;
+    text-align: left;
+    width: 90%;
+    margin-left: -40px;
 }
 /*Footer*/
 footer {
