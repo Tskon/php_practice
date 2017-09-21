@@ -51,7 +51,7 @@ $search = "{{{$actionName}}}";
 if ($options != null) {
 	$replace = $actionArr[$actionName]($options); // запуск экшена из модели возвращает html текстом
 } else {
-	$replace = $actionArr[$actionName]();
+	$replace = $actionArr[$actionName]($options);
 }
 
 $contentView = str_replace($search, $replace, $contentView); // замена {{actionName}} на html из модели

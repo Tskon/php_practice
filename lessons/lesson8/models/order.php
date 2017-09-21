@@ -30,8 +30,33 @@ function createNewOrder() {
     }
 }
 
-function currentOrder($id){
+//function currentOrder($id){
+//
+//}
+function allOrders(){
+    global $link;
+    $sql = "SELECT id, total_coast, datetime FROM `orders`";
+    $result = mysqli_query($link, $sql);
+    $str = "";
+    while ($row = mysqli_fetch_assoc($result)) {
+            $str .= "
+        <h3>Заказ № {$row['id']} от {$row['datetime']}</h3>
+        <p>Сумма: {$row['total_coast']} р.</p>
+        <p>Список товаров:</p>
+        <ul>";
+        $sql2 = "
+        SELECT order_id, name, orderlist.coast FROM `orderlist`
+        LEFT JOIN products ON (orderlist.product_id = products.id)
+        WHERE order_id = {$row['id']};
+        ";
+        $result2 = mysqli_query($link, $sql2);
+        while ($row2 = mysqli_fetch_assoc($result2)) {
+            $str .= "<li>{$row2['name']}: {$row2['coast']} р.</li>";
+        }
+        $str .= "</ul><hr>";
+    };
 
+    return $str;
 }
 
 function lastOrder(){

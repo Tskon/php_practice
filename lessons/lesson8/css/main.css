@@ -197,6 +197,12 @@ header {
     width: 90%;
     margin-left: -40px;
 }
+
+#create_product_form input {
+    display: block;
+    margin: 5px 0;
+}
+
 /*Footer*/
 footer {
     border-top: 3px solid white;
