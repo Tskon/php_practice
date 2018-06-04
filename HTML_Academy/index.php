@@ -9,8 +9,7 @@
 </head>
 <body>
 <?php
-echo 'test!';
-echo 'test message again';
+phpinfo();
 ?>
 </body>
 </html>
