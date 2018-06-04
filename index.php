@@ -6,9 +6,11 @@
 </head>
 <body>
 <?php
+
 echo 'first lesson end';
 ?>
 
 </body>
 </html>
-
+<?php
+include 'gitTest.php';
