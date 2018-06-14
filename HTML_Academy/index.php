@@ -6,12 +6,12 @@ $user_avatar = 'img/user.jpg';
 
 $categories = ['Доски и лыжи', 'Крепления', 'Ботинки', ' Одежда', 'Инструменты', 'Разное'];
 $products = [
-    ['title' => '2014 Rossignol District Snowboard', 'category_id' => 1, 'coast' => 10999, 'url' => 'img/lot-1.jpg'],
-    ['title' => 'DC Ply Mens 2016/2017 Snowboard', 'category_id' => 1, 'coast' => 15999, 'url' => 'img/lot-2.jpg'],
-    ['title' => 'Крепления Union Contact Pro 2015 года размер L/XL', 'category_id' => 2, 'coast' => 8000, 'url' => 'img/lot-3.jpg'],
-    ['title' => 'Ботинки для сноуборда DC Mutiny Charocal', 'category_id' => 3, 'coast' => 10999, 'url' => 'img/lot-4.jpg'],
-    ['title' => 'Куртка для сноуборда DC Mutiny Charocal', 'category_id' => 4, 'coast' => 7500, 'url' => 'img/lot-5.jpg'],
-    ['title' => 'Маска Oakley Canopy', 'category_id' => 6, 'coast' => 5400, 'url' => 'img/lot-6.jpg']
+    ['title' => '2014 Rossignol District Snowboard', 'categoryId' => 0, 'coast' => 10999, 'imgUrl' => 'img/lot-1.jpg'],
+    ['title' => 'DC Ply Mens 2016/2017 Snowboard', 'categoryId' => 0, 'coast' => 15999, 'imgUrl' => 'img/lot-2.jpg'],
+    ['title' => 'Крепления Union Contact Pro 2015 года размер L/XL', 'categoryId' => 1, 'coast' => 8000, 'imgUrl' => 'img/lot-3.jpg'],
+    ['title' => 'Ботинки для сноуборда DC Mutiny Charocal', 'categoryId' => 2, 'coast' => 10999, 'imgUrl' => 'img/lot-4.jpg'],
+    ['title' => 'Куртка для сноуборда DC Mutiny Charocal', 'categoryId' => 3, 'coast' => 7500, 'imgUrl' => 'img/lot-5.jpg'],
+    ['title' => 'Маска Oakley Canopy', 'categoryId' => 5, 'coast' => 5400, 'imgUrl' => 'img/lot-6.jpg']
 ];
 
 ?>
@@ -76,25 +76,28 @@ $products = [
             <h2>Открытые лоты</h2>
         </div>
         <ul class="lots__list">
-            <li class="lots__item lot">
-                <div class="lot__image">
-                    <img src="img/lot-1.jpg" width="350" height="260" alt="Сноуборд">
-                </div>
-                <div class="lot__info">
-                    <span class="lot__category">Доски и лыжи</span>
-                    <h3 class="lot__title"><a class="text-link" href="lot.html">2014 Rossignol District Snowboard</a>
-                    </h3>
-                    <div class="lot__state">
-                        <div class="lot__rate">
-                            <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost">10 999<b class="rub">р</b></span>
-                        </div>
-                        <div class="lot__timer timer">
+            <?php foreach ($products as $val) { ?>
+                <li class="lots__item lot">
+                    <div class="lot__image">
+                        <img src="<?= $val['imgUrl'] ?>" width="350" height="260"
+                             alt="<?= $categories[$val['categoryId']] ?>">
+                    </div>
+                    <div class="lot__info">
+                        <span class="lot__category"><?= $categories[$val['categoryId']] ?></span>
+                        <h3 class="lot__title"><a class="text-link" href="lot.html"><?= $val['title'] ?></a>
+                        </h3>
+                        <div class="lot__state">
+                            <div class="lot__rate">
+                                <span class="lot__amount">Стартовая цена</span>
+                                <span class="lot__cost"><?= $val['coast'] ?><b class="rub">р</b></span>
+                            </div>
+                            <div class="lot__timer timer">
 
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            <?php } ?>
         </ul>
     </section>
 </main>
@@ -102,7 +105,7 @@ $products = [
 <footer class="main-footer">
     <nav class="nav">
         <ul class="nav__list container">
-            <?php foreach ($categories as $key => $val){ ?>
+            <?php foreach ($categories as $key => $val) { ?>
                 <li class="nav__item">
                     <a href="all-lots.html"><?= $val ?></a>
                 </li>
