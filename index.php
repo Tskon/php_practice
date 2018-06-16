@@ -6,10 +6,10 @@
 </head>
 <body>
 <?php
-print strtolower('B141F71284772B4DFBBD13F2B0C1DA2CFD8E2327BD991182E8483C71FBB90486');
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+phpinfo();
+//ini_set('error_reporting', E_ALL);
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
 
 
 ?>
