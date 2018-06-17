@@ -29,7 +29,7 @@
 </header>
 
 <main class="container">
-  <?= $content ?>
+  <?= $data['content'] ?>
 </main>
 
 <footer class="main-footer">

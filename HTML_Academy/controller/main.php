@@ -5,5 +5,8 @@ require_once '../models/data.php';
 $mainTemplate=requireToVar('../view/mainTemplate.php');
 $content=requireToVar('../view/content/index-page.php');
 
-renderPage($content, ["products" => getProducts(), 'categories' => getCategories()]);
+$indexContent = renderPage($content, ["products" => getProducts(), 'categories' => getCategories()]);
+$html = renderPage($mainTemplate, ["content" => $indexContent]);
+
+print ($html);
 

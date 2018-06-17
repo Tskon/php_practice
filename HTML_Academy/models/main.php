@@ -1,7 +1,6 @@
 <?php
 function renderPage($layout, $data) {
-  require $layout;
-
+  return require $layout;
 }
 
 function getFormatedCoast($amount) {
