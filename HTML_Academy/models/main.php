@@ -14,5 +14,7 @@ function requireToVar($file, $data = []){
 }
 
 function timeToMidnight(){
-  return date('H:m', (strtotime('tomorrow') - time()));
+  $now = new DateTime();
+  $toMidnight = strtotime('tomorrow') - $now -> getTimestamp();
+  return ($toMidnight/3600 % 24) . ':' . ($toMidnight/60 % 60);
 }
