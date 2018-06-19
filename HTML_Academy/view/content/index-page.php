@@ -44,7 +44,7 @@
               <span class="lot__cost"><?= getFormatedCoast($val['coast']) ?></span>
             </div>
             <div class="lot__timer timer">
-
+              <?= timeToMidnight() ?>
             </div>
           </div>
         </div>

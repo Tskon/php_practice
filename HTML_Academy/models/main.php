@@ -12,3 +12,7 @@ function requireToVar($file, $data = []){
   require($file);
   return ob_get_clean();
 }
+
+function timeToMidnight(){
+  return date('H:m', (strtotime('tomorrow') - time()));
+}
