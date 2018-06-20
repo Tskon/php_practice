@@ -4,7 +4,7 @@ function renderPage($layout, $data) {
 }
 
 function getFormatedCoast($amount) {
-  return number_format(ceil($amount), 2, '.', ' ') . '<b class="rub">р</b>';
+  return number_format(ceil($amount), 0, '.', ' ') . '<b class="rub">р</b>';
 }
 
 function requireToVar($file, $data = []){

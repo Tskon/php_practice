@@ -1,5 +1,5 @@
 <?php
-$product = $data['products'][$data['id']];
+$product = $data['products'][+$data['id'] - 1];
 ?>
 <nav class="nav">
   <ul class="nav__list container">
@@ -31,16 +31,7 @@ $product = $data['products'][$data['id']];
         <img src="<?= $product['imgUrl'] ?>" width="730" height="548" alt="Сноуборд">
       </div>
       <p class="lot-item__category">Категория: <span><?= $data['categories'][$product['categoryId']] ?></span></p>
-      <p class="lot-item__description">Легкий маневренный сноуборд, готовый дать жару в любом парке, растопив
-        снег
-        мощным щелчкоми четкими дугами. Стекловолокно Bi-Ax, уложенное в двух направлениях, наделяет этот
-        снаряд
-        отличной гибкостью и отзывчивостью, а симметричная геометрия в сочетании с классическим прогибом
-        кэмбер
-        позволит уверенно держать высокие скорости. А если к концу катального дня сил совсем не останется,
-        просто
-        посмотрите на Вашу доску и улыбнитесь, крутая графика от Шона Кливера еще никого не оставляла
-        равнодушным.</p>
+      <p class="lot-item__description"><?= $product['description'] ?></p>
     </div>
     <div class="lot-item__right">
       <div class="lot-item__state">
@@ -50,10 +41,10 @@ $product = $data['products'][$data['id']];
         <div class="lot-item__cost-state">
           <div class="lot-item__rate">
             <span class="lot-item__amount">Текущая цена</span>
-            <span class="lot-item__cost"><?= $product['coast'] ?></span>
+            <span class="lot-item__cost"><?= getFormatedCoast($product['coast']) ?></span>
           </div>
           <div class="lot-item__min-cost">
-            Мин. ставка <span>12 000 р</span>
+            Мин. ставка <span><?= getFormatedCoast(12000) ?></span>
           </div>
         </div>
         <form class="lot-item__form" action="https://echo.htmlacademy.ru" method="post">
