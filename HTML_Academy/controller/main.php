@@ -4,7 +4,9 @@ require_once $path . 'models/data.php';
 
 
 $url = parse_url($_SERVER['REQUEST_URI']);
-parse_str($url['query'], $query);
+if(isset($url['query'])){
+  parse_str($url['query'], $query);
+}
 
 if (isset($_GET['route'])) {
   switch ($url['path']) {
