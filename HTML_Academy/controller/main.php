@@ -13,6 +13,8 @@ if (isset($_GET['route'])) {
     case '/lot':
       include_once $path . 'controller/lot.php';
       break;
+    case '/404':
+      print('<h1>Sorry, but page not found. 404</h1>');
   }
 } else {
   $indexContent = renderPage($path . 'view/content/index-page.php', ["products" => getProducts(), 'categories' => getCategories()]);
