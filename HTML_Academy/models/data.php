@@ -73,7 +73,6 @@ function getBets(){
   ];
 }
 
-
 // пользователи для аутентификации
 function getUsers(){
   return [
@@ -93,4 +92,8 @@ function getUsers(){
       'password' => '$2y$10$2OxpEH7narYpkOT1H5cApezuzh10tZEEQ2axgFOaKW.55LxIJBgWW'
     ]
   ];
+}
+
+function addProduct(){
+
 }
