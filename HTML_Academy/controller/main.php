@@ -13,6 +13,11 @@ if (isset($_GET['route'])) {
     case '/lot':
       include_once $path . 'controller/lot.php';
       break;
+    case '/add':
+      $addLotContent = renderPage($path . 'view/content/addLot.php', ['categories' => getCategories()]);
+      $html = renderPage($path . 'view/mainTemplate.php', ["content" => $addLotContent, 'categories' => getCategories()]);
+      print ($html);
+      break;
     case '/404':
       print('<h1>Sorry, but page not found. 404</h1>');
   }
