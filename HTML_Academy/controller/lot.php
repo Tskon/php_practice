@@ -13,5 +13,4 @@ if (isset($query['id'])){
     header('Location: /404');
     exit;
   }
-
 }
