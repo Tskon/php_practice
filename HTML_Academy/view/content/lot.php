@@ -28,7 +28,7 @@ $product = $data['products'][+$data['id'] - 1];
   <div class="lot-item__content">
     <div class="lot-item__left">
       <div class="lot-item__image">
-        <img src="<?= $product['imgUrl'] ?>" width="730" height="548" alt="Сноуборд">
+        <img src="<?= $product['imgUrl'] ?>" width="730" height="548" alt="<?= $product['title'] ?>">
       </div>
       <p class="lot-item__category">Категория: <span><?= $data['categories'][$product['categoryId']] ?></span></p>
       <p class="lot-item__description"><?= $product['description'] ?></p>

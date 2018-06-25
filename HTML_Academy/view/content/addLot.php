@@ -1,4 +1,4 @@
-<form class="form form--add-lot container form--invalid" action="https://echo.htmlacademy.ru" method="post">
+<form class="form form--add-lot container form--invalid" action="/add" method="post">
   <!-- form--invalid -->
   <h2>Добавление лота</h2>
   <div class="form__container-two">

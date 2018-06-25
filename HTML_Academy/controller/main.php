@@ -20,8 +20,15 @@ if (isset($_GET['route'])) {
       break;
     case '/404':
       print('<h1>Sorry, but page not found. 404</h1>');
+      break;
   }
-} else {
+} elseif (isset($_POST['route'])) {
+  switch ($url['path']) {
+    case '/add':
+      var_dump($_POST);
+      break;
+  }
+}else {
   $indexContent = renderPage($path . 'view/content/index-page.php', ["products" => getProducts(), 'categories' => getCategories()]);
   $html = renderPage($path . 'view/mainTemplate.php', ["content" => $indexContent, 'categories' => getCategories()]);
 
