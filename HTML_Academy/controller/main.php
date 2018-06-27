@@ -8,16 +8,15 @@ if(isset($url['query'])){
   parse_str($url['query'], $query);
 }
 
-if (isset($_POST['route'])) {
+//var_dump($_POST); exit;
+if (count($_POST) > 0) {
   switch ($url['path']) {
-    case '/add-lot':
+    case '/add':
       include_once $path . 'models/addLot.php';
-      $addLotContent = renderPage($path . 'view/content/addLot.php', ['categories' => getCategories()]);
-      $html = renderPage($path . 'view/mainTemplate.php', ["content" => $addLotContent, 'categories' => getCategories()]);
-      print ($html);
       break;
   }
-} elseif (isset($_GET['route'])) {
+}
+if (isset($_GET['route'])) {
   switch ($url['path']) {
     case '/lot':
       include_once $path . 'controller/lot.php';
