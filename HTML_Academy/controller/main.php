@@ -27,7 +27,7 @@ if (isset($_GET['route'])) {
       print ($html);
       break;
     case '/404':
-      print('<h1>Sorry, but page not found. 404</h1>');
+      print('<h1>Sorry, but page not found. 404</h1>'); // todo сделать отдельную страницу.
       break;
   }
 } else {
