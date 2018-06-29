@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="form__input-file">
-      <input class="visually-hidden" type="file" id="photo2" value="" required>
+      <input class="visually-hidden" accept="image/*" name="image" type="file" id="photo2" value="" required>
       <label for="photo2">
         <span>+ Добавить</span>
       </label>
