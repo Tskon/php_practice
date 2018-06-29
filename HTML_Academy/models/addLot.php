@@ -7,8 +7,9 @@ foreach ($fields as $field) {
   } elseif (isset($_FILES[$field])) {
     $fileType = $_FILES[$field]['type'];
     $fileName = $_FILES[$field]['name'];
-    $fileName = $_FILES[$field]['size'];
-    $fileName = $_FILES[$field]['tmp_name'];
+    $fileSize = $_FILES[$field]['size'];
+    $fileTmpName = $_FILES[$field]['tmp_name'];
+    var_dump(strpos($fileType, "image") !== false);
 //    $path;
   }
   print '<br/>';
