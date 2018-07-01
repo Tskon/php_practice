@@ -1,19 +1,33 @@
 <?php
-$fields = ['category', 'lot-name', 'message', 'image', 'lot-rate', 'lot-step', 'lot-date'];
+$fields = [
+  'category' => '',
+  'lot-name' => '',
+  'message' => '',
+  'image' => '',
+  'lot-rate' => '',
+  'lot-step' => '',
+  'lot-date' => ''];
+$errors = [];
 
-foreach ($fields as $field) {
-  if (isset($_POST[$field])) {
+if(!is_numeric($_POST['lot-rate'])) $errors['lot-rate'] = 'Введите число';
+if(!is_numeric($_POST['lot-step'])) $errors['lot-step'] = 'Введите число';
 
-  } else {
+foreach ($fields as $field => $val) {
+  if (isset($_POST[$field]) && $_POST[$field] !== '') {
+    $fields[$field] = $_POST[$field];
+  } elseif (isset($_FILES[$field])) {
     $result = fileSave($field, [
       'directory' => $path . 'img/upload/',
       'ext' => ['png', 'jpeg', 'jpg', 'gif'],
       'maxSize' => 3]);
-
     if ($result['type'] === 'success') {
-      print '<img src="'. $uploadImgPath . basename($result['file']) . '"/>';
+      $fields[$field] = $uploadImgPath . basename($result['file']);
     } else {
-      print '<br/>' . implode(', ', $result['errors']);
+      $errors[$field] = $result['errors'];
     }
+  }else{
+    $errors[$field] = 'Поле не заполнено';
   }
 }
+
+if($_POST['category'] === 'Выберите категорию') $errors['category'] = 'Не выбрана категория';
