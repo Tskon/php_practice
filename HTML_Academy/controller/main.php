@@ -1,7 +1,7 @@
 <?php
 require_once $path . 'models/main.php';
+require_once $path . 'models/utils.php';
 require_once $path . 'models/data.php';
-
 
 $url = parse_url($_SERVER['REQUEST_URI']);
 if(isset($url['query'])){
