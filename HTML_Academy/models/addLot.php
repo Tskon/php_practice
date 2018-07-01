@@ -8,7 +8,7 @@ foreach ($fields as $field) {
     $result = fileSave($field, [
       'directory' => $path . 'img/upload/',
       'ext' => ['png', 'jpeg', 'jpg', 'gif'],
-      'maxSize' => 0.001]);
+      'maxSize' => 3]);
 
     if ($result['type'] === 'success') {
       print '<img src="'. $uploadImgPath . basename($result['file']) . '"/>';
