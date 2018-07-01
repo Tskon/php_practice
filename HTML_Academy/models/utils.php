@@ -19,19 +19,22 @@ function fileSave($fieldName, $options) {
   if (isset($_FILES[$fieldName])) {
     $errors = [];
 
-    $fileType = $_FILES[$fieldName]['type'];
     $fileName = $_FILES[$fieldName]['name'];
     $fileSize = $_FILES[$fieldName]['size'];
     $fileTmpName = $_FILES[$fieldName]['tmp_name'];
 
-    print $fileType;
-    if ($fileType && isset($options['type']) &&strpos($fileType, $options['type']) === false) {
-      $errors[] = 'Incorrect file type';
+    if (isset($options['ext'])) {
+      $fileChunks = explode('.', $fileName);
+      $fileExt = array_pop($fileChunks);
+      if (!in_array($fileExt, $options['ext'])){
+        $errors[] = 'Incorrect file type. Available types: ' . implode(', ', $options['ext']);
+      }
     }
-    print $fileSize.' ';
-    print ($options['maxSize'] * 1048576);
     if (isset($options['maxSize']) && $fileSize > ($options['maxSize'] * 1048576)) {
       $errors[] = 'The file exceeds ' . $options['maxSize'] . 'mb';
+    }
+    if ($_FILES[$fieldName]['error']){
+      $errors[] = 'upload error code: ' . $_FILES[$fieldName]['error'];
     }
 
     if (count($errors) === 0) {
