@@ -5,7 +5,10 @@ foreach ($fields as $field) {
   if (isset($_POST[$field])) {
 
   } else {
-    $result = fileSave($field, ['directory' => $path . 'img/upload/', 'type' => 'image', 'maxSize' => 3]);
+    $result = fileSave($field, [
+      'directory' => $path . 'img/upload/',
+      'ext' => ['png', 'jpeg', 'jpg', 'gif'],
+      'maxSize' => 0.001]);
 
     if ($result['type'] === 'success') {
       print '<img src="'. $uploadImgPath . basename($result['file']) . '"/>';
