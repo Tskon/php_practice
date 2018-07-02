@@ -8,14 +8,16 @@ if(isset($url['query'])){
   parse_str($url['query'], $query);
 }
 
-//var_dump($_POST); exit;
-if (count($_POST) > 0) {
+
+// post для обработки запроса, потом все равно гет
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   switch ($url['path']) {
     case '/add':
       include_once $path . 'models/addLot.php';
       break;
   }
 }
+
 if (isset($_GET['route'])) {
   switch ($url['path']) {
     case '/lot':
