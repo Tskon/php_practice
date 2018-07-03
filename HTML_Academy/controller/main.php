@@ -28,6 +28,9 @@ if (isset($_GET['route'])) {
       $html = renderPage($path . 'view/mainTemplate.php', ["content" => $addLotContent, 'categories' => getCategories()]);
       print ($html);
       break;
+    case '/history':
+      include_once $path . 'models/history.php';
+      break;
     case '/404':
       print('<h1>Sorry, but page not found. 404</h1>'); // todo сделать отдельную страницу.
       break;
