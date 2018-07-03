@@ -1,5 +1,5 @@
 <?php
-$product = $data['products'][+$data['id'] - 1];
+$product = $data['products'][+$data['id']];
 ?>
 <nav class="nav">
   <ul class="nav__list container">
