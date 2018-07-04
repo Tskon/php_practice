@@ -20,6 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 if (isset($_GET['route'])) {
   switch ($url['path']) {
+    case '/login':
+      $login = renderPage($path . 'view/content/login.php', []);
+      $html = renderPage($path . 'view/mainTemplate.php', ["content" => $login, 'categories' => getCategories()]);
+      print ($html);
+      break;
     case '/lot':
       include_once $path . 'controller/lot.php';
       break;
