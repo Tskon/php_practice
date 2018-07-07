@@ -8,3 +8,5 @@ date_default_timezone_set('Europe/Moscow');
 
 $path = $_SERVER['DOCUMENT_ROOT'] . '/HTML_Academy/';
 $uploadImgPath = 'HTML_Academy/img/upload/';
+
+global $path, $uploadImgPath;
