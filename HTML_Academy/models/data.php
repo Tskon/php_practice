@@ -79,12 +79,12 @@ function getUsers(){
     [
       'email' => 'ignat.v@gmail.com',
       'name' => 'Игнат',
-      'password' => '$2y$10$OqvsKHQwr0Wk6FMZDoHo1uHoXd4UdxJG/5UDtUiie00XaxMHrW8ka'
+      'password' => '$2y$10$OqvsKHQwr0Wk6FMZDoHo1uHoXd4UdxJG/5UDtUiie00XaxMHrW8ka' // ugOgdVMi
     ],
     [
       'email' => 'kitty_93@li.ru',
       'name' => 'Леночка',
-      'password' => '$2y$10$bWtSjUhwgggtxrnJ7rxmIe63ABubHQs0AS0hgnOo41IEdMHkYoSVa'
+      'password' => '$2y$10$bWtSjUhwgggtxrnJ7rxmIe63ABubHQs0AS0hgnOo41IEdMHkYoSVa' // daecNazD
     ],
     [
       'email' => 'warrior07@mail.ru',
