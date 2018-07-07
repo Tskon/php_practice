@@ -58,3 +58,10 @@ function fileSave($fieldName, $options) {
     }
   }
 }
+
+function killDangerString($str, $maxLength){
+  if (isset($maxLength)) $str = substr($str, 0, $maxLength);
+  $str = strip_tags($str);
+  $str = htmlspecialchars($str);
+  return $str;
+}
