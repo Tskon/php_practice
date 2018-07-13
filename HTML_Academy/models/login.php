@@ -18,9 +18,10 @@ if ($email !== null && $password !== null){
   }
 
   if ($currentUser !== null && password_verify($password, $currentUser['password'])){
-    print 'Correct!';
     session_start();
-    // todo set cookie and sesstion
+    if (!isset($_SESSION['user']) || $_SESSION['user']['email'] !== $email){
+      $_SESSION['user'] = ['email' => $email, 'password' => $currentUser['password']];
+    }
   } else {
     print 'Incorrect password';
   }
